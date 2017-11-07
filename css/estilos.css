@@ -1,0 +1,201 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/02/2017, 07:35:21 PM
+    Author     : Octavio
+*/
+*{
+    border:0;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #ccc;
+    background-image: url("../img/fondos.jpg");
+    color:#084B8A;
+   font-size:16px;
+   font-family:Arial;
+}
+
+#container{
+    background:#fff;
+    margin-bottom: 50px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+    color:#084B8A;
+   font-size:16px;
+   font-family:Arial;
+}
+input.text, select.text, textarea.text {
+   background: #90AEF6;
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: #393939;
+   font-size: 12px;
+   padding: 5px;
+}
+#contenido{
+   background:#fff;
+   margin:20px auto;
+   overflow:hidden;
+   padding:40px ;
+ border:1px solid #2E9AFE;
+   width:90%;
+   -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+color:#084B8A;
+   font-size:16px;
+   font-family:Arial;
+}
+#cont-menu{
+    background: #2175bc;
+    height: 40px;
+}
+#banner{
+    height: 300px;
+    background: #fff;
+
+}
+footer{
+    height: 50px;
+    background:  #2175bc;
+
+}
+footer div{
+    text-align: center;
+    font-family: Arial;
+    font-size:11px;
+    padding: 10px;
+    background-color: #2175bc;
+    color: #fff;
+
+}
+header{
+    background: #fff;
+    /* width: 780px; */
+    height: 100px;
+    background-image: url("../img/BANNER.png");
+    margin-top: 5px;
+
+}
+#main{
+    height: 215px;
+    background: #666;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+
+}
+
+#main #producto1{
+    background: #DD15DD;
+    width: 250px;
+    height: 210px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url("../img/cont1.png");
+}
+#main #producto2{
+    background: #DD1530;
+    width: 250px;
+    height: 210px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url("../img/cont2.png");
+}
+#main #producto3{
+    background: #F97714;
+    width: 250px;
+    height: 210px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url("../img/cont3.png");
+}
+#button {
+    padding: 0;
+}
+#button li {
+    display: inline;
+}
+#button li a {
+    font-family: Arial;
+    font-size:11px;
+    text-decoration: none;
+    float:left;
+    padding: 10px;
+    background-color: #2175bc;
+    color: #fff;
+}
+#button li a:hover {
+    background-color: #2586d7;
+    margin-top:-2px;
+    padding-bottom:12px;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+ border: none;
+ background: #3a7999;
+ color: #f2f2f2;
+ padding: 5px;
+ font-size: 18px;
+ border-radius: 5px;
+ position: relative;
+ box-sizing: border-box;
+ transition: all 500ms ease;
+}
+
+button:hover {
+ background: rgba(0,0,0,0);
+ color: #3a7999;
+ box-shadow: inset 0 0 0 3px #3a7999;
+}
+#log{
+    padding-top: 90px;
+}
+
+#logueo{
+
+    width: 50%;
+    text-align: center;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    background: rgba(242,246,248,1);
+background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 30%, rgba(181,198,208,1) 41%, rgba(224,239,249,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,246,248,1)), color-stop(30%, rgba(216,225,231,1)), color-stop(41%, rgba(181,198,208,1)), color-stop(100%, rgba(224,239,249,1)));
+background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 30%, rgba(181,198,208,1) 41%, rgba(224,239,249,1) 100%);
+background: -o-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 30%, rgba(181,198,208,1) 41%, rgba(224,239,249,1) 100%);
+background: -ms-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 30%, rgba(181,198,208,1) 41%, rgba(224,239,249,1) 100%);
+background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 30%, rgba(181,198,208,1) 41%, rgba(224,239,249,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
+
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.form-box .header{
+    background: #red;
+}
+/*########################################################### */
+
+
+.inputo{
+     /* background: silver; */
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: #393939;
+   font-size: 12px;
+   padding: 5px;
+}
