@@ -1,5 +1,8 @@
 <?php
-require_once("../../../connection/conexion.php");
+//Este archivo me permite cargar los proveedores por medio del ide*/
+if (is_file('../../../connection/conexion.php')) {
+    include_once "../../../connection/conexion.php";
+}
 
 function getProducto()
 {

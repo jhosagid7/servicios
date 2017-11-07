@@ -1,21 +1,20 @@
 <?php
 session_start();
-require_once ('../../app/Config.php');
+include_once '../../app/Config.php';
 
-if(!isset($_SESSION["nombre"]))
-{
-  header("Location: ../mod_usuario/usuario.php");
-}else {
-  if (isset($_SESSION["privilegio"]) and  $_SESSION["privilegio"] == "Administrador" || $_SESSION["privilegio"] == "Usuario"){
-?>
+if (!isset($_SESSION["nombre"])) {
+    header("Location: ../mod_usuario/usuario.php");
+} else {
+    if (isset($_SESSION["privilegio"]) and  $_SESSION["privilegio"] == "Administrador" || $_SESSION["privilegio"] == "Usuario") {
+    ?>
 
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
     <head>
         <meta charset="UTF-8">
         <title>Sistema</title>
         <!-- llamamos hoja de estilos css -->
-        <?php require_once('../../app/Header_admin.php'); ?>
+        <?php include_once '../../app/Header_admin.php'; ?>
         <script type="text/javascript">
             
         </script>
@@ -26,30 +25,26 @@ if(!isset($_SESSION["nombre"]))
             <section id="container">
                 <header>
                 </header>
-                <?php require_once('../../modulos/mod_administrador/menu_administrador.php'); ?>
+                <?php include_once '../../modulos/mod_administrador/menu_administrador.php'; ?>
                     <section id="mainContainer">
                       <article id="contenido">
                         <?php
                           //echo"<center>";
-                          if(empty($_POST["ingresar_compras"]))
-                          {
+                        if (empty($_POST["ingresar_compras"])) {
                             $_POST["ingresar_compras"]=0;
-                          }
-                          if(empty($_POST["actualizar_compras"]))
-                          {
-                          $_POST["actualizar_compras"]=0;
-                          }
-                          if(empty($_POST["ver_compras"]))
-                          {
-                          $_POST["ver_compras"]=0;
-                          }
+                        }
+                        if (empty($_POST["actualizar_compras"])) {
+                            $_POST["actualizar_compras"]=0;
+                        }
+                        if (empty($_POST["ver_compras"])) {
+                            $_POST["ver_compras"]=0;
+                        }
 
                           $ingresar_compras=$_POST["ingresar_compras"];
                           $actualizar_compras=$_POST["actualizar_compras"];
                           $ver_compras=$_POST["ver_compras"];
 
-                          if($ingresar_compras)
-                          {
+                        if ($ingresar_compras) {
                             echo "<center><section class='content'>
                     <div class='row'>
                         <!-- left column -->
@@ -158,10 +153,7 @@ if(!isset($_SESSION["nombre"]))
                           </div>
                       </div>
                   </section></center>";
-
-                           }
-                          else if($actualizar_compras)
-                          {
+                        } elseif ($actualizar_compras) {
                             echo "<center><section class='content'>
                     <div class='row'>
                         <!-- left column -->
@@ -194,70 +186,63 @@ if(!isset($_SESSION["nombre"]))
                           </div>
                       </div>
                   </section></center>";
-                          }
-                          else if($ver_compras)
-                          {
-                          $conexion=mysqli_connect("localhost","root","","servicios");
-                          mysqli_select_db($conexion,"servicios");
+                        } elseif ($ver_compras) {
+                            $conexion=mysqli_connect("localhost", "root", "", "servicios");
+                            mysqli_select_db($conexion, "servicios");
 
-                          $buscar=mysqli_query($conexion,"select * from compras");
+                            $buscar=mysqli_query($conexion, "select * from compras");
 
-                          echo"<h1>Ver compras</h1>";
-                          echo"<table  class='table  table-hover table-condensed dataTable'  ><tr><th>C&oacute;digo</th><th>Detalles</th><th>Litros</th><th>Fecha</th><th>id proveedor</th><th>";
+                            echo"<h1>Ver compras</h1>";
+                            echo"<table  class='table  table-hover table-condensed dataTable'  ><tr><th>C&oacute;digo</th><th>Detalles</th><th>Litros</th><th>Fecha</th><th>id proveedor</th><th>";
 
-                          while($dato=mysqli_fetch_array($buscar))
-                          {
-                          echo"<tr><td>";
-                          echo $dato["id_compra"];
-                          echo"</td><td>";
+                            while ($dato=mysqli_fetch_array($buscar)) {
+                                echo"<tr><td>";
+                                echo $dato["id_compra"];
+                                echo"</td><td>";
 
-                          echo $dato["detalle"];
-                          echo"</td><td>";
+                                echo $dato["detalle"];
+                                echo"</td><td>";
 
-                          echo $dato["litros"];
-                          echo"</td><td>";
+                                echo $dato["litros"];
+                                echo"</td><td>";
 
-                          echo $dato["fecha"];
-                          echo"</td><td>";
+                                echo $dato["fecha"];
+                                echo"</td><td>";
 
-                          echo $dato["id_proveedor"];
-                          echo"</td><td>";
-                          }
+                                echo $dato["id_proveedor"];
+                                echo"</td><td>";
+                            }
 
-                          echo"</table>";
-                          $num=mysqli_num_rows($buscar);
+                            echo"</table>";
+                            $num=mysqli_num_rows($buscar);
 
-                          echo"<h3>Numero de Compras: $num</h3>";
-                          echo"<p                                                         >
+                            echo"<h3>Numero de Compras: $num</h3>";
+                            echo"<p                                                         >
                               <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_compras/administrar_compras.php>Regresar</a>
                               ";
-                            
-
-
-
-                          }
+                        }
 
 
 
                           echo"</center>";
 
 
-                          ?>
-                        </article>
-                        <footer>
+                            ?>
+                          </article>
+                          <footer>
                             <div> Desarrollado por Baron, Gonzalez y Hernandez agosto 2017 </div> 
-                        </footer>
-                    </section>
-                </section>
+                          </footer>
+                      </section>
+                  </section>
 
-        </section>
-          <script src="js/programa.js"></script>      
+          </section>
+            <script src="js/programa.js"></script>      
         
-    </body>
+      </body>
 
- <?php   
-    }else{
-         header("Location: " . BASE_URL . "app/404.php");
+        <?php
+    } else {
+        header("Location: " . BASE_URL . "app/404.php");
     }
 }      ?>
 </html>
