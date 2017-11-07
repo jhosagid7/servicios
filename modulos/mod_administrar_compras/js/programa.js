@@ -32,7 +32,7 @@ $(document).ready(function(){
 		$.ajax({
 			type: 'POST',
 			url: 'aplication/cargar_proveedor_id.php',
-			data: {'id_proveedor' : id}
+			data: {'id' : id}
 		})
 		.done(function(Lista_proveedor){
 			$('#nombre_prov').val('');
