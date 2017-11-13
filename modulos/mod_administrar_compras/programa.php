@@ -55,7 +55,7 @@ if (!isset($_SESSION["nombre"])) {
 								<h3 class='box-title'>Registro de Compras</h3>
 							</div><!-- /.box-header -->
 							<!-- form start -->
-							<form role='form' method=POST action=ingresar.php>
+							<form id='form-ingresar-compras' role='form' method=POST action=ingresar.php>
 							<table class='table  table-hover table-condensed dataTable'>
 								<tr>
 									<td colspan='2'>
@@ -64,10 +64,9 @@ if (!isset($_SESSION["nombre"])) {
 									</select>
 									</td>
 								</tr>   
-								<div id='datos_prov'> 
 								<tr>
 								    <th ><label for='nombre_prov'>Nombre del proveedor</label></th>
-									<td><input id='nombre_prov' name='nombre_prov' type='text' class='form-control' id='nombre_prov' placeholder='Nombre del proveedor' value='' ></td>
+									<td><input id='nombre_prov' name='nombre_prov' type='text' class='form-control' placeholder='Nombre del proveedor' value='' ></td>
 									</tr>
 									<tr>
 									<th ><label for='Rif'>Ingrese N° de Rif</label></th>
@@ -102,11 +101,7 @@ if (!isset($_SESSION["nombre"])) {
 									<tr>
 										<td colspan='2'>
 											<h3><b>Datos de Combra</b></h3>
-											<select class='form-control' name='producto_select' id='producto_select'>
-												<option value='0'>Selecciones Producto</option>
-												<option value='E-'>Diesel</option>
-												<option value='J-'>Gasolina</option>
-											</select>
+											
 										</td>
 												
 									</tr> 
@@ -115,7 +110,10 @@ if (!isset($_SESSION["nombre"])) {
 										<td><input id='num_factura' class='form-control' type='text' name='num_factura'/></td>
 									</tr>
 									<tr>
-										<th scope='row'>Producto</th>
+										<th scope='row'>
+										Producto
+										<button type='button' class='btn btn-primary btn-sm' data-toggle='modal' data-target='#myModal'><i class='fa fa-search' aria-hidden='true'></i></button>
+										</th>
 										<td><input id='producto' class='form-control' type='text' name='producto'/></td>
 									</tr>
 									<tr>
@@ -137,7 +135,7 @@ if (!isset($_SESSION["nombre"])) {
 									<tr>
 										<th colspan='2' scope=row> 
 										<div class='box-footer'>
-											<input class='btn btn-primary' name='ingresar_compras' type=submit value='OK Ingresar'/>
+											<input class='btn btn-primary' id='btn_ingresar_compras' name='btn_ingresar_compras' type=submit value='OK Ingresar'/>
 											<input class='btn btn-warning' type=reset value=Limpiar>
 											<a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_compras/administrar_compras.php>Regresar</a>
 										</div>
@@ -238,5 +236,26 @@ if (!isset($_SESSION["nombre"])) {
         header("Location: " . BASE_URL . "app/404.php");
     }
 } ?>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <select class='form-control' name='produ_select' id='produ_select'></select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </html>

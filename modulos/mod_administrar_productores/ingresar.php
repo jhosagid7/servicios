@@ -36,10 +36,11 @@ $preRif=$_POST["preRif"];
 $rif_prod=$preRif.$_POST["rif_prod"];
 
 $telefono_prod=$_POST["telefono_prod"];
+$direccion_prod = $_POST["direccion_prod"];
 
-$sql="insert into productor(id_productor,nombre_empresa_prod,rif_prod,telefono_prod)
+$sql="insert into productor(id_productor,nombre_empresa_prod,rif_prod,telefono_prod,direccion_prod)
 
-values(null,'$nombre_empresa_prod','$rif_prod','$telefono_prod')";
+values(null,'$nombre_empresa_prod','$rif_prod','$telefono_prod','$direccion_prod')";
 
 $conexion = mysqli_connect("localhost","root","","servicio");
 mysqli_select_db($conexion,"servicio");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2017 a las 19:59:06
+-- Tiempo de generación: 10-11-2017 a las 22:03:48
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -108,6 +108,13 @@ CREATE TABLE `producto` (
   `precio_venta` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `producto`, `stock`, `limite_stock`, `precio_compra`, `precio_venta`) VALUES
+(1, 'Diesel', 500, 100, '50.00', '55');
+
 -- --------------------------------------------------------
 
 --
@@ -118,16 +125,18 @@ CREATE TABLE `productor` (
   `id_productor` int(11) NOT NULL,
   `nombre_empresa_prod` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `rif_prod` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono_prod` varchar(45) COLLATE utf8_spanish_ci NOT NULL
+  `telefono_prod` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion_prod` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `productor`
 --
 
-INSERT INTO `productor` (`id_productor`, `nombre_empresa_prod`, `rif_prod`, `telefono_prod`) VALUES
-(1, 'Hacienda Napoles', '193192131', '04247108436'),
-(2, 'Leche Agro', '1126424825', '04247108436');
+INSERT INTO `productor` (`id_productor`, `nombre_empresa_prod`, `rif_prod`, `telefono_prod`, `direccion_prod`) VALUES
+(1, 'Hacienda Napoles', '193192131', '04247108436', 'Tucani'),
+(2, 'Leche Agro', '1126424825', '04247108436', 'Merida'),
+(3, 'Jugos Jhosagid', 'V-194248921', '04267298465', 'ggg');
 
 -- --------------------------------------------------------
 
@@ -148,7 +157,8 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`id_proveedor`, `nombre_prov`, `rif_prov`, `telefono_prov`, `direccion_prov`) VALUES
-(2, 'Yemily Rangel', 'P-001203091', '04247232995', 'El vigia estado Merida');
+(2, 'Yemily Rangel', 'P-001203091', '04247232995', 'El vigia estado Merida'),
+(4, 'Brian Pirela', 'V-29632293', '04247584123', 'Prado hermoso');
 
 -- --------------------------------------------------------
 
@@ -185,6 +195,7 @@ CREATE TABLE `ventas` (
   `nombre_prod` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `rif_prod` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `telefono_prod` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion_prod` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre_operador` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_reg` date NOT NULL,
   `monto_total_venta` decimal(11,2) NOT NULL
@@ -280,7 +291,7 @@ ALTER TABLE `detalle_ventas`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productor`
@@ -292,7 +303,7 @@ ALTER TABLE `productor`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

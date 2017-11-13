@@ -35,11 +35,12 @@ echo"<center>";
 $nombre_empresa_prod=$_POST["nombre_empresa_prod"];
 $rif_prod=$_POST["rif_prod"];
 $telefono_prod=$_POST["telefono_prod"];
+$direccion_prod = $_POST["direccion_prod"];
 
 $conexion=mysqli_connect("localhost","root","","servicio");
 mysqli_select_db($conexion,"servicio");
 
-mysqli_query($conexion,"update productor set  nombre_empresa_prod ='$nombre_empresa_prod',rif_prod='$rif_prod',telefono_prod='$telefono_prod', where rif_prod='$rif_prod'");
+mysqli_query($conexion,"update productor set  nombre_empresa_prod ='$nombre_empresa_prod',rif_prod='$rif_prod',telefono_prod='$telefono_prod', direccion_prod='$direccion_prod' where rif_prod='$rif_prod'");
 
 
 

@@ -5,16 +5,16 @@ if (is_file('../../../connection/conexion.php')) {
 }
 
 //Esta funcion me permite traer los proveedores
-function getProveedores()
+function getProductores()
 {
     $mysqli = getConn();
-    $query = 'SELECT * FROM proveedor';
+    $query = 'SELECT * FROM productor';
     $result = $mysqli->query($query);
-    $list = '<option value="0">Elige un Proveedor de la lista</option>';
+    $list = '<option value="0">Elige un Productor de la lista</option>';
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-        $list .= "<option value='$row[id_proveedor]'>$row[nombre_prov]</option>";
+        $list .= "<option value='$row[id_productor]'>$row[nombre_empresa_prod]</option>";
     }
     
     return $list;
 }
- echo getProveedores();
+ echo getProductores();

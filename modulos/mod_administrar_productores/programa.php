@@ -94,7 +94,15 @@ if(!isset($_SESSION["nombre"]))
                                         <tr>
                                           <th scope=row>Telefono del productor:</th>
                                           <td><input class=form-control type=number name=telefono_prod required value='' placeholder='Telefono del productor'/></td>
-                                        </tr>
+										</tr>
+										<tr>
+										<th>
+										Dirección
+										</th>
+										<td>
+										<textarea id='direccion_prod' class='form-control' name='direccion_prod'></textarea>
+										</td>
+									</tr>
                                         <tr>
                                           <th colspan='2' scope=row> 
                                               <div class='box-footer'>

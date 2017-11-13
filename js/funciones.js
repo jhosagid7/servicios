@@ -12,7 +12,4 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
             }, function(data){
               $("#contenido").html(data);
             });
-
-
-
 }

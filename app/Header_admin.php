@@ -26,7 +26,8 @@
 
      
 
-        <script type="text/javascript" language="javascript" src="<?php echo BASE_URL?>plantilla/js/bootstrap.min.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo BASE_URL?>plantilla/js/bootstrap.min.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo BASE_URL ?>plantilla/js/jquery.validate.min.js"></script>
 
         <script src="<?php echo BASE_URL?>plantilla/js/AdminLTE/app.js" type="text/javascript"></script>
 

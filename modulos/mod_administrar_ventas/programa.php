@@ -1,21 +1,20 @@
 <?php
 session_start();
-require_once ('../../app/Config.php');
+require_once '../../app/Config.php';
 
-if(!isset($_SESSION["nombre"]))
-{
-  header("Location: ../mod_usuario/usuario.php");
-}else {
-  if (isset($_SESSION["privilegio"]) and  $_SESSION["privilegio"] == "Administrador" || $_SESSION["privilegio"] == "Usuario"){
-?>
+if (!isset($_SESSION["nombre"])) {
+    header("Location: ../mod_usuario/usuario.php");
+} else {
+    if (isset($_SESSION["privilegio"]) and  $_SESSION["privilegio"] == "Administrador" || $_SESSION["privilegio"] == "Usuario") {
+    ?>
 
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
     <head>
         <meta charset="UTF-8">
         <title>Sistema</title>
         <!-- llamamos hoja de estilos css -->
-        <?php require_once('../../app/Header_admin.php'); ?>
+        <?php include_once '../../app/Header_admin.php'; ?>
         <script type="text/javascript">
             
         </script>
@@ -26,31 +25,26 @@ if(!isset($_SESSION["nombre"]))
             <section id="container">
                 <header>
                 </header>
-                <?php require_once('../../modulos/mod_administrador/menu_administrador.php'); ?>
+                <?php include_once '../../modulos/mod_administrador/menu_administrador.php'; ?>
                     <section id="mainContainer">
                       <article id="contenido">
                         <?php
                           //echo"<center>";
-                          if(empty($_POST["ingresar_ventas"]))
-                          {
+                        if (empty($_POST["ingresar_ventas"])) {
                             $_POST["ingresar_ventas"]=0;
-                          }
-                          if(empty($_POST["actualizar_ventas"]))
-                          {
-                          $_POST["actualizar_ventas"]=0;
-                          }
-                          if(empty($_POST["ver_ventas"]))
-                          {
-                          $_POST["ver_ventas"]=0;
-                          }
+                        }
+                        if (empty($_POST["actualizar_ventas"])) {
+                            $_POST["actualizar_ventas"]=0;
+                        }
+                        if (empty($_POST["ver_ventas"])) {
+                            $_POST["ver_ventas"]=0;
+                        }
 
                           $ingresar_ventas=$_POST["ingresar_ventas"];
                           $actualizar_ventas=$_POST["actualizar_ventas"];
                           $ver_ventas=$_POST["ver_ventas"];
 
-                          if($ingresar_ventas)
-                          {
-                          	
+                        if ($ingresar_ventas) {
                             echo "<center><section class='content'>
                     <div class='row'>
                         <!-- left column -->
@@ -61,61 +55,92 @@ if(!isset($_SESSION["nombre"]))
                                     <h3 class='box-title'>Registro de Ventas</h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
-                                <form role='form' method=POST action=ingresar.php>
+                                <form id='form-ingresar-ventas' role='form' method=POST action=ingresar.php>
                                     <table class='table  table-hover table-condensed dataTable'>
-                                        <tr>
-                                          <th ><label for='tipo_prod'>Tipo de producto</label></th>
-                                          <td><input name=tipo_prod type='text' class='form-control' id='tipo_prod' placeholder='Tipo de producto' value='' required></td>
-                                        </tr>
-                                        <tr>
-                                          <th scope=row>litros:</th>
-                                          <td><input class=form-control type=number max=1000 min=200 name=litros value='' placeholder='Cantidad de litros' required/></td>
-                                        </tr>
-                                        <tr>
-                                          <th scope=row>fecha</th>
-                                          <td><input class=form-control type=date name=fecha required/></td>
-                                        </tr>
-                                        <tr>
-                                        	<th>
-                                        		Productor
-                                        	</th>
-                                        	<td>
-                                        	<select name='id_productor' class='form-control'required>
-                                        	<option value=''>Selecctione Productor</option>";
-                                          $conexion=mysqli_connect("localhost","root","","servicios");
-                                          mysqli_select_db($conexion,"servicios");
-
-                                          $productores=mysqli_query($conexion,"select * from productores");
-                                        	while($dato=mysqli_fetch_array($productores))
-                          					{
-                          						?>
-                          						<option value='<?php echo $dato['id_productor']?>'><?php echo "<h3>Empresa: </h3>" . $dato['nombre_empresa_prod']?> - <?php echo "<h3>Nombre: </h3>" .  $dato['nombre_contacto_prod']?> - <?php echo "<h3>Cedula: </h3>" .  $dato['cedula_contacto_prod']?></option>
-                          						<?php
-                          					}
-
-                                        	echo "</select>
-                                        	</td>
-                                        </tr>
-                                        <tr>
-                                          <th colspan='2' scope=row> 
-                                              <div class='box-footer'>
-                                                  <input class='btn btn-primary' name='ingresar_ventas' type=submit value='OK Ingresar'/>
-                                                  <input class='btn btn-warning' type=reset value=Limpiar>
-                                                  <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_ventas/administrar_ventas.php>Regresar</a>
-                                              </div>
-                                          </th>
-                                        </tr>
-                                        
-                                      </table>
+								<tr>
+									<td colspan='2'>
+									<h3><b>Datos del Productor</b></h3>
+									<select class='form-control' name='prod_select' id='prod_select'>
+									</select>
+									</td>
+								</tr>   
+								<div id='datos_prov'> 
+								<tr>
+								    <th ><label for='nombre_empresa_prod'>Nombre empresa</label></th>
+									<td><input id='nombre_empresa_prod' name='nombre_empresa_prod' type='text' class='form-control' id='nombre_prov' placeholder='Nombre empresa' value='' ></td>
+									</tr>
+									<tr>
+									<th ><label for='Rif'>Ingrese N° de Rif</label></th>
+										<td>
+											<div id='divPreRif' class='col-md-3'>
+												<select class='form-control' name='preRif' id='preRif'>
+													<option value='V-'>V-</option>
+													<option value='E-'>E-</option>
+													<option value='J-'>J-</option>
+													<option value='G-'>G-</option>
+													<option value='P-'>P-</option>
+												</select>
+											</div>
+											<div id='inpRif' class='col-md-9'>
+												<input id='rif_prod' class='form-control' type='text' name='rif_prod' value='' placeholder='Ejemp. 13021811' /></td>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope='row'>Telefono</th>
+										<td><input id='telefono_prod' class='form-control' type='text' name='telefono_prod'/></td>
+									</tr>
+									<tr>
+										<th>
+										Dirección
+										</th>
+										<td>
+										<textarea id='direccion_prod' class='form-control' name='direccion_prod'></textarea>
+										</td>
+									</tr>
+									</div>
+									<tr>
+										<td colspan='2'>
+											<h3><b>Datos de Venta</b></h3>
+											
+										</td>
+												
+									</tr> 
+									<tr>
+										<th scope='row'>
+										Producto
+										<button type='button' class='btn btn-primary btn-sm' data-toggle='modal' data-target='#myModal'><i class='fa fa-search' aria-hidden='true'></i></button>
+										</th>
+										<td><input id='producto' class='form-control' type='text' name='producto'/></td>
+									</tr>
+									<tr>
+										<th scope='row'>Precio Unitario</th>
+										<td><input id='precio_unit' class='form-control' type='text' name='precio_unit'/></td>
+									</tr>
+									<tr>
+										<th scope='row'>Cantidad</th>
+										<td><input id='cantidad' class='form-control' type='text' name='cantidad'/></td>
+									</tr>
+									<tr>
+										<th scope='row'>Monto de la venta</th>
+										<td><input id='monto_total_venta' class='form-control' type='text' name='monto_total_venta'/></td>
+									</tr>
+									<tr>
+										<th colspan='2' scope=row> 
+										<div class='box-footer'>
+											<input class='btn btn-primary' id='btn_ingresar_ventas' name='btn_ingresar_ventas' type=submit value='OK Ingresar'/>
+											<input class='btn btn-warning' type=reset value=Limpiar>
+											<a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_compras/administrar_compras.php>Regresar</a>
+										</div>
+									</th>
+									</tr>
+									</table>
                                 </form>
                               </div><!-- /.box -->
                           </div>
                       </div>
                   </section></center>";
-
-                           }
-                          else if($actualizar_ventas)
-                          {
+                        } elseif ($actualizar_ventas) {
                             echo "<center><section class='content'>
                     <div class='row'>
                         <!-- left column -->
@@ -148,71 +173,84 @@ if(!isset($_SESSION["nombre"]))
                           </div>
                       </div>
                   </section></center>";
-                          }
-                          else if($ver_ventas)
-                          {
-                          $conexion=mysqli_connect("localhost","root","","servicios");
-                          mysqli_select_db($conexion,"servicios");
+                        } elseif ($ver_ventas) {
+                            $conexion=mysqli_connect("localhost", "root", "", "servicios");
+                            mysqli_select_db($conexion, "servicios");
 
-                          $buscar=mysqli_query($conexion,"select * from ventas");
+                            $buscar=mysqli_query($conexion, "select * from ventas");
 
-                          echo"<h1>Ver ventas</h1>";
-                          echo"<table  class='table  table-hover table-condensed dataTable'  ><tr><th>C&oacute;digo</th><th>Tipo de producto</th><th>Litros</th><th>Fecha</th><th>id productor</th><th>";
+                            echo"<h1>Ver ventas</h1>";
+                            echo"<table  class='table  table-hover table-condensed dataTable'  ><tr><th>C&oacute;digo</th><th>Tipo de producto</th><th>Litros</th><th>Fecha</th><th>id productor</th><th>";
 
-                          while($dato=mysqli_fetch_array($buscar))
-                          {
-                          echo"<tr><td>";
-                          echo $dato["id_ventas"];
-                          echo"</td><td>";
+                            while ($dato=mysqli_fetch_array($buscar)) {
+                                echo"<tr><td>";
+                                echo $dato["id_ventas"];
+                                echo"</td><td>";
 
-                          echo $dato["tipo_prod"];
-                          echo"</td><td>";
+                                echo $dato["tipo_prod"];
+                                echo"</td><td>";
 
-                          echo $dato["litros"];
-                          echo"</td><td>";
+                                echo $dato["litros"];
+                                echo"</td><td>";
 
-                          echo $dato["fecha"];
-                          echo"</td><td>";
+                                echo $dato["fecha"];
+                                echo"</td><td>";
 
-                          echo $dato["id_productor"];
-                          echo"</td><td>";
-                          
-                          }
+                                echo $dato["id_productor"];
+                                echo"</td><td>";
+                            }
 
-                          echo"</table>";
-                          $num=mysqli_num_rows($buscar);
+                            echo"</table>";
+                            $num=mysqli_num_rows($buscar);
 
-                          echo"<h3>Numero de Ventas: $num</h3>";
-                          echo"<p                                                         >
+                            echo"<h3>Numero de Ventas: $num</h3>";
+                            echo"<p                                                         >
                               <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_ventas/administrar_ventas.php>Regresar</a>
                               ";
-                            
-
-
-
-                          }
+                        }
 
 
 
                           echo"</center>";
 
 
-                          ?>
-                        </article>
-                        <footer>
+                            ?>
+                          </article>
+                          <footer>
                             <div> Desarrollado por Baron, Gonzalez y Hernandez agosto 2017 </div> 
-                        </footer>
-                    </section>
-                </section>
+                          </footer>
+                      </section>
+                  </section>
 
-        </section>
+          </section>
                 
         
-    </body>
-
- <?php   
-    }else{
-         header("Location: " . BASE_URL . "app/404.php");
+      </body>
+  <script src="js/programa.js"></script>
+        <?php
+    } else {
+        header("Location: " . BASE_URL . "app/404.php");
     }
 }      ?>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <select class='form-control' name='produ_select' id='produ_select'></select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </html>

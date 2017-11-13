@@ -32,7 +32,7 @@ if(!isset($_SESSION["nombre"]))
 /*print_r($_POST); exit;*/
 echo"<center>";
 
-
+print_r($_POST); exit;
 
 /*$idmedica=$_POST["idmedica"];*/
 $id_proveedor=$_POST["id_proveedor"];
