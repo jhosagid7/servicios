@@ -68,7 +68,7 @@ if(!isset($_SESSION["nombre"]))
                                     <h3 class='box-title'>Registro de Productor</h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
-                                <form role='form' method=POST action=ingresar.php>
+                                <form id='form-ingresar-productor' role='form' method=POST action=ingresar.php>
                                     <table class='table  table-hover table-condensed dataTable'>
                                         <tr>
                                           <th ><label for='nombre_empresa_prod'>Nombre de la empresa</label></th>
@@ -106,7 +106,7 @@ if(!isset($_SESSION["nombre"]))
                                         <tr>
                                           <th colspan='2' scope=row> 
                                               <div class='box-footer'>
-                                                  <input class='btn btn-primary' name='ingresar_productor' type=submit value='OK Ingresar'/>
+                                                  <input class='btn btn-primary' id='btn_ingresar_productor' name='btn_ingresar_productor' type=submit value='OK Ingresar'/>
                                                   <input class='btn btn-warning' type=reset value=Limpiar>
                                                   <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_productores/administrar_productores.php>Regresar</a>
                                               </div>
@@ -281,7 +281,7 @@ if(!isset($_SESSION["nombre"]))
 
         </section>
                 
-        
+    <script src="js/programa.js"></script>    
     </body>
 
  <?php   

@@ -66,7 +66,7 @@ if(!isset($_SESSION["nombre"]))
                                     <h3 class='box-title'>Registro de Usuarios</h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
-                                <form role='form' method=POST action=ingresar.php>
+                                <form id='form-ingresar-usuario' role='form' method=POST action=ingresar.php>
                                     <table class='table  table-hover table-condensed dataTable'>
                                         <tr>
                                           <th ><label for='nombre'>Nombre: </label></th>
@@ -100,7 +100,7 @@ if(!isset($_SESSION["nombre"]))
                                         <tr>
                                           <th colspan='2' scope=row> 
                                               <div class='box-footer'>
-                                                  <input class='btn btn-primary' name='ingresar_usuario' type=submit value='OK Ingresar'/>
+                                                  <input class='btn btn-primary' id='btn_ingresar_usuario' name='btn_ingresar_usuario' type=submit value='OK Ingresar'/>
                                                   <input class='btn btn-warning' type=reset value=Limpiar>
                                                   <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_usuarios/administrar_usuarios.php>Regresar</a>
                                               </div>
@@ -171,7 +171,7 @@ if(!isset($_SESSION["nombre"]))
                                         <tr>
                                           <th colspan='2' scope=row> 
                                               <div class='box-footer'>
-                                                  <input class='btn btn-primary' name='buscar_usuario' type=submit value='OK Ingresar'/>
+                                                  <input class='btn btn-primary' name='btn_buscar_usuario' type=submit value='OK Ingresar'/>
                                                   <input class='btn btn-warning' type=reset value=Limpiar>
                                                   <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_usuarios/administrar_usuarios.php>Regresar</a>
                                               </div>
@@ -248,7 +248,7 @@ if(!isset($_SESSION["nombre"]))
 
         </section>
                 
-        
+    <script src="js/programa.js"></script>    
     </body>
 
  <?php   

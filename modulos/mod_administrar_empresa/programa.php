@@ -66,11 +66,11 @@ if(!isset($_SESSION["nombre"]))
                                     <h3 class='box-title'>Registro de Empresa</h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
-                                <form role='form' method=POST action=ingresar.php>
+                                <form id='form-ingresar-empresa' role='form' method=POST action=ingresar.php>
                                     <table class='table  table-hover table-condensed dataTable'>
                                         <tr>
                                           <th ><label for='nombre_emp'>Nombre de la empresa</label></th>
-                                          <td><input name=nombre_emp type='text' class='form-control' id='nombre_emp' placeholder='Nombre de la empresa' value='' required></td>
+                                          <td><input name='nombre_emp' type='text' class='form-control' id='nombre_emp' placeholder='Nombre de la empresa' value='' required></td>
                                         </tr>
                                         <tr>
                                           <th scope=row>Rif de la empresa:</th>
@@ -105,7 +105,7 @@ if(!isset($_SESSION["nombre"]))
                                         <tr>
                                           <th colspan='2' scope=row> 
                                               <div class='box-footer'>
-                                                  <input class='btn btn-primary' name='ingresar_empresa' type=submit value='OK Ingresar'/>
+                                                  <input class='btn btn-primary' id='btn_ingresar_empresa' name='btn_ingresar_empresa' type=submit value='OK Ingresar'/>
                                                   <input class='btn btn-warning' type=reset value=Limpiar>
                                                   <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_empresa/administrar_empresa.php>Regresar</a>
                                               </div>
@@ -278,7 +278,7 @@ if(!isset($_SESSION["nombre"]))
 
         </section>
                 
-        
+    <script src="js/programa.js"></script>  
     </body>
 
  <?php   

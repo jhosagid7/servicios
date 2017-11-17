@@ -119,7 +119,9 @@ if (!isset($_SESSION["nombre"])) {
 									</tr>
 									<tr>
 										<th scope='row'>Cantidad</th>
-										<td><input id='cantidad' class='form-control' type='text' name='cantidad'/></td>
+										<td><input id='cantidad' class='form-control' type='text' name='cantidad'/>
+										<div id='mensaje_error_cantidad' class='alert alert-danger' hidden></div>
+										</td>
 									</tr>
 									<tr>
 										<th scope='row'>Monto de la venta</th>
@@ -244,6 +246,8 @@ if (!isset($_SESSION["nombre"])) {
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
+		<div id='mensaje_error' class="alert alert-danger" hidden></div>
+		<div id='mensaje_warning' class="alert alert-warning" hidden></div>
         <select class='form-control' name='produ_select' id='produ_select'></select>
       </div>
       <div class="modal-footer">
