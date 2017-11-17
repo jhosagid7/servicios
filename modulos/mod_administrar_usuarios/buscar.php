@@ -48,7 +48,7 @@ while($dato=mysqli_fetch_array($buscar))
 <center>
 
 
-<form method=POST action=actualizar.php>
+<form id='form-actualizar-usuario' method=POST action=actualizar.php>
 <h3>Actualizar datos del usuario <?php echo $dato["usuario"];?></h3><center>
 
 <table class='table  table-hover table-condensed dataTable'>
@@ -98,7 +98,7 @@ while($dato=mysqli_fetch_array($buscar))
   <tr>
     <th colspan="2" scope=row> 
         <div class='box-footer'>
-            <input class='btn btn-primary' name='ingresar_usuario' type=submit value='OK Ingresar'/>
+            <input class='btn btn-primary' id='btn_acutualizar_usuario' name='btn_acutualizar_usuario' type=submit value='OK Ingresar'/>
             <input class='btn btn-warning' type=reset value=Limpiar>
             <a class='btn btn-info' href=http://localhost/servicios/modulos/mod_administrar_usuarios/administrar_usuarios.php>Regresar</a>
         </div>
@@ -143,3 +143,4 @@ echo"<a class='btn btn-info href=http://localhost/servicios/modulos/mod_administ
 
 
 
+<script src="js/programa.js"></script>
