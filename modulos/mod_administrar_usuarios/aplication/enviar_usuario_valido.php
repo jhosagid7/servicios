@@ -1,10 +1,10 @@
 <?php
-//Este archivo me permite cargar los proveedores por medio del ide*/
+//Este archivo me permite cargar los usuarios por medio del ide*/
 if (is_file('../../../connection/conexion.php')) {
 	include_once "../../../connection/conexion.php";
 }
 
-//Funcion que me permite llamar el proveedor
+//Funcion que me permite llamar el usuario
 function getUsuarioName()
 {
 	$mysqli = getConn();

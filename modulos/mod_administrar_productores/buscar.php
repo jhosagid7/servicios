@@ -44,7 +44,7 @@ if (mysqli_num_rows($resultadoa)>0) {
       <center>
 
 
-      <form method='POST' action='actualizar.php'>
+      <form id='form-actualizar-productor' method='POST' action='actualizar.php'>
         <h3>Actualizar datos del productor <?php echo $dato["nombre_empresa_prod"];?></h3><center>
 
   <table class='table  table-hover table-condensed dataTable'>
@@ -73,7 +73,7 @@ if (mysqli_num_rows($resultadoa)>0) {
     <tr>
       <th colspan="2" scope=row> 
         <div class='box-footer'>
-            <input class='btn btn-primary' name='actualizar_usuario' type=submit value='OK Ingresar'/>
+            <input class='btn btn-primary' id='btn_actualizar_productor' name='btn_actualizar_productor' type=submit value='OK Ingresar'/>
             <input class='btn btn-warning' type=reset value=Limpiar>
             <a class='btn btn-info' href='http://localhost/servicios/modulos/mod_administrar_productores/administrar_productores.php'>Regresar</a>
         </div>
@@ -111,6 +111,6 @@ if (mysqli_num_rows($resultadoa)>0) {
     }
 }  ?>
 </html>
-
+<script src="js/programa.js"></script>
 
 

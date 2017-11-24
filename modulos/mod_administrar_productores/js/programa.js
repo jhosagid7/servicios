@@ -8,6 +8,15 @@ $( document ).ready(function() {
 						minlength: 10,
 						maxlength: 100
 					},
+					nombre_empresa_prod: {
+						required: true,
+						minlength: 3,
+						maxlength: 45,
+						remote: {
+							url: 'aplication/enviar_nombre_empresa_productor_valido.php',
+							type: "post"
+						}
+					},
 					rif_prod: {
 						required: true,
 						minlength: 10,
@@ -53,41 +62,40 @@ $( document ).ready(function() {
 	
 		
 	
-		$("#actualizar_productor").on("click", function(){
+		$("#btn_actualizar_productor").on("click", function(){
 			$("#form-actualizar-productor").validate({
 				rules:{
-					nombre: {
+					nombre_empresa_prod: {
 						required: true,
-						minlength: 3,
-						maxlength: 7
+						minlength: 10,
+						maxlength: 100
 					},
-					
-					pregunta: {
+					telefono_prod: {
 						required: true,
-						minlength: 3,
-						maxlength: 7
+						minlength: 10,
+						maxlength: 15
 					},
-					respuesta: {
+					direccion_prod: {
 						required: true,
-						minlength: 3,
-						maxlength: 7
+						minlength: 10,
+						maxlength: 254
 					}
 				},
 				messages:{
-					nombre:{
-						required: 'Este campo es lo mejor',
-						minlength: 'El número minimo de caracteres es 3',
-						maxlength: 'El número maximo de caracteres es 7'
+					nombre_empresa_prod:{
+						required: 'Este campo es obligatorio',
+						minlength: 'El número minimo de caracteres es 10',
+						maxlength: 'El número maximo de caracteres es 100'
 					},
-					pregunta:{
-						required: 'Este campo es lo mejor',
-						minlength: 'El número minimo de caracteres es 3',
-						maxlength: 'El número maximo de caracteres es 7'
+					telefono_prod: {
+						required: 'Este campo es obligatorio',
+						minlength: 'El número minimo de caracteres es 10',
+						maxlength: 'El número maximo de caracteres es 15'
 					},
-					respuesta:{
-						required: 'Este campo es lo mejor',
-						minlength: 'El número minimo de caracteres es 3',
-						maxlength: 'El número maximo de caracteres es 7'
+					direccion_prod: {
+						required: 'Este campo es obligatorio',
+						minlength: 'El número minimo de caracteres es 10',
+						maxlength: 'El número maximo de caracteres es 254'
 					}
 				}
 			});

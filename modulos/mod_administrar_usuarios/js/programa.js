@@ -102,19 +102,19 @@ $(document).ready(function() {
             },
             messages: {
                 nombre: {
-                    required: 'Este campo es lo mejor',
+                    required: 'Este campo es obligatorio',
                     minlength: 'El número minimo de caracteres es 3',
-                    maxlength: 'El número maximo de caracteres es 7'
+                    maxlength: 'El número maximo de caracteres es 100'
                 },
                 pregunta: {
-                    required: 'Este campo es lo mejor',
-                    minlength: 'El número minimo de caracteres es 3',
-                    maxlength: 'El número maximo de caracteres es 7'
+                    required: 'Este campo es obligatorio',
+                    minlength: 'El número minimo de caracteres es 1',
+                    maxlength: 'El número maximo de caracteres es 254'
                 },
                 respuesta: {
-                    required: 'Este campo es lo mejor',
-                    minlength: 'El número minimo de caracteres es 3',
-                    maxlength: 'El número maximo de caracteres es 7'
+                    required: 'Este campo es obligatorio',
+                    minlength: 'El número minimo de caracteres es 1',
+                    maxlength: 'El número maximo de caracteres es 254'
                 }
             }
         });

@@ -48,7 +48,7 @@ while($dato=mysqli_fetch_array($buscar))
 <center>
 
 
-<form method='POST' action='actualizar.php'>
+<form id='form-actualizar-proveedor' method='POST' action='actualizar.php'>
 <h3>Actualizar datos del proveedor <?php echo $dato["nombre_prov"];?></h3><center>
 
 <table class='table  table-hover table-condensed dataTable'>
@@ -71,7 +71,7 @@ while($dato=mysqli_fetch_array($buscar))
   <tr>
     <th colspan="2" scope=row> 
         <div class='box-footer'>
-            <input class='btn btn-primary' name='actualizar_proveedor' type=submit value='OK Ingresar'/>
+            <input class='btn btn-primary' id='btn_actualizar_proveedor' name='btn_actualizar_proveedor' type=submit value='OK Ingresar'/>
             <input class='btn btn-warning' type=reset value=Limpiar>
             <a class='btn btn-info' href='http://localhost/servicios/modulos/mod_administrar_proveedores/administrar_proveedores.php'>Regresar</a>
         </div>
@@ -113,6 +113,6 @@ echo"<a class='btn btn-info href=http://localhost/servicios/modulos/mod_administ
     }
   }  ?>
 </html>
-
+<script src="js/programa.js"></script>
 
 
